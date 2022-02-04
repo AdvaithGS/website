@@ -1,7 +1,7 @@
 body{
-    background-color: rgb(2, 2, 32);
+    background-color: rgb(3, 3, 36);
     font-family: Montserrat;
-    font-size: xx-large;
+    font-size: x-large;
     color: rgb(255,255,255);
     display: flex;
     width:100%;
@@ -17,16 +17,16 @@ body{
     color: rgb(255,255,255);
     background-color: rgb(2,2,32);
     padding: 0.5em;
-    width: 13em;
+    width: 18em;
     margin-top: 1em;
     margin-bottom: 1em;
     text-align: center;
 }
 div{
-    border: 10px solid;
     width: 100%;
 }
 span{
     display: flex;
     justify-content: center;
+    padding: 0em;
 }
