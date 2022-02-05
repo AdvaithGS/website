@@ -1,4 +1,15 @@
-//document.getElementById('result').textContent 
-var i = 1;
+var i = 0;
+var button = document.getElementById('button');
 var input = document.getElementById('input');
-console.log(input)
+button.addEventListener("click", count);
+    function count(){
+        var result = document.getElementById('result')
+        i += 1;
+        result.textContent = i;
+};
+input.addEventListener('keypress',enter);
+    function enter(event){
+        if (event.key === 'Enter'){
+            count();
+        } 
+    }
