@@ -15,10 +15,12 @@ button.addEventListener("click", count);
             var result = document.getElementById('result');
             var input = document.getElementById('input');
             if (parseInt(input.value) === questions[questions.length - 1 ]){
-                right += 1
-                result.textContent = 'Correct!'
+                right += 1;
+                result.textContent = 'Correct!';
             }else{
-                result.textContent = 'Wrong'
+                if (i !== 0){
+                    result.textContent = 'Wrong';
+                }
             }
             try{
                 if (b.getSeconds() + b.getMinutes()*60 + b.getHours()*3600 - a.getSeconds() - a.getMinutes()*60 - a.getHours()*3600 > max){
