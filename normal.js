@@ -2,6 +2,8 @@ var i = 0;
 const start = new Date();
 var right = 0;
 var max = 0;
+var answered = [];
+var ax = new Date();
 var longest_taken = '';
 var last_questions = [];
 var questions = []
@@ -11,7 +13,9 @@ button.addEventListener("click", count);
     function count(){
         document.getElementById('button').textContent = 'Submit';
         if (i < 20){
-            var b = new Date()
+            var b = new Date();
+            //console.log(ax.getSeconds() + ax.getMinutes()*60 + ax.getHours()*3600);
+            var ax = new Date();
             var result = document.getElementById('result');
             var input = document.getElementById('input');
             if (parseInt(input.value) === questions[questions.length - 1 ]){
@@ -21,15 +25,14 @@ button.addEventListener("click", count);
                 if (i !== 0){
                     result.textContent = 'Wrong';
                 }
-            }
+            };
+            answered.push(input.value);
             try{
-                if (b.getSeconds() + b.getMinutes()*60 + b.getHours()*3600 - a.getSeconds() - a.getMinutes()*60 - a.getHours()*3600 > max){
+                if (b.getSeconds() + b.getMinutes()*60 + b.getHours()*3600 - a.getSeconds() - a.getMinutes()*60 - a.getHours()*3600 > max && i !== 0){
                     max = b.getSeconds() + b.getMinutes()*60 + b.getHours()*3600 - a.getSeconds() - a.getMinutes()*60 - a.getHours()*3600;
                     longest_taken = last_questions[last_questions.length - 1];
-                } 
-            }catch{
-                
-            };
+                }; 
+            }catch{};
             input.value = '';
             var question = document.getElementById('question');
             i += 1;
@@ -54,14 +57,15 @@ button.addEventListener("click", count);
                 questions.push(x/y);
                 };
             question.textContent = last_questions[last_questions.length - 1];
-            var a = new Date();
             //result.textContent = i;
         }else{
             var result = document.getElementById('result');
             var end = new Date();
-            result.textContent = longest_taken + ' Right got: '  + right;
+            var time_taken =  Math.round(end.getSeconds() + end.getMinutes()*60 + end.getHours()*3600 - (start.getSeconds() + start.getMinutes()*60 + start.getHours()*3600));
+            //(b.getSeconds() + b.getMinutes()*60 + b.getHours()*3600 - a.getSeconds() - a.getMinutes()*60 - a.getHours()*3600)
+            result.textContent =  'Time taken: '+ String(time_taken) + 'seconds Right answers: '  + right;
         }
-};
+    };
 input.addEventListener('keypress',enter);
     function enter(event){
         if (event.key === 'Enter'){

@@ -1,7 +1,10 @@
+:root{
+    --size: 3.5vh
+}
 body{
     background-color: rgb(3, 3, 36);
     font-family: Montserrat;
-    font-size: x-large;
+    font-size: var(--size);
     color: rgb(255,255,255);
     display: flex;
     width:100%;
@@ -17,7 +20,8 @@ body{
     color: rgb(255,255,255);
     background-color: rgb(2,2,32);
     padding: 0.5em;
-    width: 18em;
+    width: 30vw;
+    font-size: 2vh;
     margin-top: 1em;
     margin-bottom: 1em;
     text-align: center;
