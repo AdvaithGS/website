@@ -58,7 +58,8 @@ button.addEventListener("click", count);
                 };
             question.textContent = last_questions[last_questions.length - 1];
             //result.textContent = i;
-        }else{
+        }else if (i === 20){
+            i += 1;
             var input = document.getElementById('input');
             if (parseInt(input.value) === questions[questions.length - 1 ]){
                 right += 1;
@@ -68,7 +69,10 @@ button.addEventListener("click", count);
             var time_taken =  Math.round(end.getSeconds() + end.getMinutes()*60 + end.getHours()*3600 - (start.getSeconds() + start.getMinutes()*60 + start.getHours()*3600));
             //(b.getSeconds() + b.getMinutes()*60 + b.getHours()*3600 - a.getSeconds() - a.getMinutes()*60 - a.getHours()*3600)
             result.textContent =  'Time taken: '+ String(time_taken) + ' seconds, Right answers: '  + right;
-        }
+            button.textContent = 'Redo';
+        }else{
+            window.location.reload();
+        };
     };
 input.addEventListener('keypress',enter);
     function enter(event){
