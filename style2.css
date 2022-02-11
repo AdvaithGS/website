@@ -1,5 +1,5 @@
 :root{
-    --size: 3.5vh
+    --size: 3.25vh;
 }
 body{
     background-color: rgb(3, 3, 20);
@@ -17,13 +17,13 @@ body{
     font-family: Montserrat;
     border-color: rgb(133, 133, 197);
     border-radius: 3em;
-    border-width: 2px;
+    border-width: 1.8px;
     color: rgb(255,255,255);
     background-color: rgb(2,2,25);
     padding: 0.5em;
     width: 30vw;
     font-size: 2vh;
-    margin-top: 1em;
+    margin-top: 0.5em;
     margin-bottom: 1em;
     text-align: center;
 }
@@ -37,5 +37,6 @@ span{
 }
 #answer{
     position: relative;
-    top: 0.1em;
+    top: 0.5em;
+    font-size: 2.5vh;
 }

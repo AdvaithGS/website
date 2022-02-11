@@ -6,7 +6,7 @@ var answered = [];
 var ax = new Date();
 var longest_taken = '';
 var last_questions = [];
-var questions = []
+var questions = [];
 var button = document.getElementById('button');
 var input = document.getElementById('input');
 button.addEventListener("click", count);
@@ -25,7 +25,7 @@ button.addEventListener("click", count);
             }else{
                 if (i !== 0){
                     result.textContent = 'Wrong.' ;
-                    document.getElementById('answer').textContent = `Correct Answer: ${String(questions[questions.length - 1])}`;
+                    document.getElementById('answer').textContent = 'Correct Answer: ' + String(questions[questions.length - 1]);
                 }
             };
             answered.push(input.value);
