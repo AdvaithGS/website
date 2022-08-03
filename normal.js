@@ -38,8 +38,8 @@ button.addEventListener("click", count);
             input.value = '';
             var question = document.getElementById('question');
             i += 1;
-            var x = Math.floor(Math.random()*29) + 1;
-            var y = Math.floor(Math.random()*29) + 1;
+            var x = Math.floor(Math.random()*49) + 1;
+            var y = Math.floor(Math.random()*49) + 1;
             var z = ['+','-','*','/'][Math.floor(Math.random()*3)];
             if (z === '+'){
                 last_questions.push(String(x) + ' + ' + String(y));
