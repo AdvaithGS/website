@@ -15,7 +15,7 @@ button.addEventListener("click", count);
         if (i < 20){
             var b = new Date();
             var ax = new Date();
-            console.log(ax.getSeconds() + ax.getMinutes()*60 + ax.getHours()*3600);
+            // console.log(ax.getSeconds() + ax.getMinutes()*60 + ax.getHours()*3600);
             var result = document.getElementById('result');
             var input = document.getElementById('input');
             if (parseInt(input.value) === questions[questions.length - 1 ]){
