@@ -18,17 +18,23 @@ button.addEventListener("click", count);
             // console.log(ax.getSeconds() + ax.getMinutes()*60 + ax.getHours()*3600);
             var result = document.getElementById('result');
             var input = document.getElementById('input');
-            if (text_questions[text_questions.length - 1].includes('/')){
-                input.value = input.value*1000;
+            var check_this = input.value;
+            if (i > 0 && text_questions[text_questions.length - 1].includes('/')){
+                check_this = parseFloat(input.value)*1000;
             };
-            if (parseInt(input.value) === ParseInt(answers[answers.length - 1])){
+            if (parseInt(check_this) === parseInt(answers[answers.length - 1])){
                 right += 1;
                 document.getElementById('answer').textContent = '';
                 result.textContent = 'Correct!';
             }else{
                 if (i !== 0){
                     result.textContent = 'Wrong.' ;
-                    document.getElementById('answer').textContent = 'Correct Answer: ' + String(answers[answers.length - 1]);
+                    if (text_questions[text_questions.length - 1].includes('/')){
+                        document.getElementById('answer').textContent = 'Correct Answer: ' + String((answers[answers.length - 1])/1000);
+                    }
+                    else{
+                        document.getElementById('answer').textContent = 'Correct Answer: ' + String(answers[answers.length - 1]);
+                    };
                 }
             };
             answered.push(input.value);
@@ -43,7 +49,7 @@ button.addEventListener("click", count);
             i += 1;
             var x = Math.floor(Math.random()*49) + 1;
             var y = Math.floor(Math.random()*49) + 1;
-            var z = ['+','-','*','/'][Math.floor(Math.random()*4)];
+            var z = ['+','-','*','+','-','*','/'][Math.floor(Math.random()*7)];
             if (z === '+'){
                 text_questions.push(String(x) + ' + ' + String(y));
                 answers.push(x+y);
@@ -55,10 +61,12 @@ button.addEventListener("click", count);
                 answers.push(x*y);
             }else if(z === '/'){
                 var x = Math.floor(Math.random()*200);
-                var y = Math.floor(Math.random()*x);
+                var y = Math.floor(Math.random()*200);
+                while (y === 0){   
+                    var y = Math.floor(Math.random()*x);
+                };
                 text_questions.push(String(x) + ' / ' + String(y));
-               answers.push(Round((x/y)*10000));
-
+               answers.push(parseInt((x/y)*1000));
                 };
             question.textContent = text_questions[text_questions.length - 1];
             //result.textContent = i;
