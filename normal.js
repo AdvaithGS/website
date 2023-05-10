@@ -5,8 +5,8 @@ var max = 0;
 var answered = [];
 var ax = new Date();
 var longest_taken = '';
-var last_questions = [];
-var questions = [];
+var text_questions = [];
+var answers = [];
 var button = document.getElementById('button');
 var input = document.getElementById('input');
 button.addEventListener("click", count);
@@ -18,21 +18,24 @@ button.addEventListener("click", count);
             // console.log(ax.getSeconds() + ax.getMinutes()*60 + ax.getHours()*3600);
             var result = document.getElementById('result');
             var input = document.getElementById('input');
-            if (parseInt(input.value) === questions[questions.length - 1 ]){
+            if (text_questions[text_questions.length - 1].includes('/')){
+                input.value = input.value*1000;
+            };
+            if (parseInt(input.value) === ParseInt(answers[answers.length - 1])){
                 right += 1;
                 document.getElementById('answer').textContent = '';
                 result.textContent = 'Correct!';
             }else{
                 if (i !== 0){
                     result.textContent = 'Wrong.' ;
-                    document.getElementById('answer').textContent = 'Correct Answer: ' + String(questions[questions.length - 1]);
+                    document.getElementById('answer').textContent = 'Correct Answer: ' + String(answers[answers.length - 1]);
                 }
             };
             answered.push(input.value);
             try{
                 if (b.getSeconds() + b.getMinutes()*60 + b.getHours()*3600 - a.getSeconds() - a.getMinutes()*60 - a.getHours()*3600 > max && i !== 0){
                     max = b.getSeconds() + b.getMinutes()*60 + b.getHours()*3600 - a.getSeconds() - a.getMinutes()*60 - a.getHours()*3600;
-                    longest_taken = last_questions[last_questions.length - 1];
+                    longest_taken = text_questions[text_questions.length - 1];
                 }; 
             }catch{};
             input.value = '';
@@ -40,30 +43,29 @@ button.addEventListener("click", count);
             i += 1;
             var x = Math.floor(Math.random()*49) + 1;
             var y = Math.floor(Math.random()*49) + 1;
-            var z = ['+','-','*','/'][Math.floor(Math.random()*3)];
+            var z = ['+','-','*','/'][Math.floor(Math.random()*4)];
             if (z === '+'){
-                last_questions.push(String(x) + ' + ' + String(y));
-                questions.push(x+y);
+                text_questions.push(String(x) + ' + ' + String(y));
+                answers.push(x+y);
             }else if (z === '-'){
-                last_questions.push(String(x) + ' - ' + String(y));
-                questions.push(x-y);
+                text_questions.push(String(x) + ' - ' + String(y));
+                answers.push(x-y);
             }else if(z === '*'){
-                last_questions.push(String(x) + ' x ' + String(y));
-                questions.push(x*y);
+                text_questions.push(String(x) + ' x ' + String(y));
+                answers.push(x*y);
             }else if(z === '/'){
                 var x = Math.floor(Math.random()*200);
-                while (x%y !== 0){
-                    y = Math.floor(Math.random()*x);
+                var y = Math.floor(Math.random()*x);
+                text_questions.push(String(x) + ' / ' + String(y));
+               answers.push(Round((x/y)*10000));
+
                 };
-                last_questions.push(String(x) + ' / ' + String(y));
-                questions.push(x/y);
-                };
-            question.textContent = last_questions[last_questions.length - 1];
+            question.textContent = text_questions[text_questions.length - 1];
             //result.textContent = i;
         }else if (i === 20){
             i += 1;
             var input = document.getElementById('input');
-            if (parseInt(input.value) === questions[questions.length - 1 ]){
+            if (parseInt(input.value) ===answers[questions.length - 1 ]){
                 right += 1;
                 document.getElementById('result').textContent = 'Correct!';
             }else{
