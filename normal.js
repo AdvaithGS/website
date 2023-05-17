@@ -73,7 +73,7 @@ button.addEventListener("click", count);
         }else if (i === 20){
             i += 1;
             var input = document.getElementById('input');
-            if (parseInt(input.value) ===answers[questions.length - 1 ]){
+            if (parseInt(input.value) ===answers[text_questions.length - 1 ]){
                 right += 1;
                 document.getElementById('result').textContent = 'Correct!';
             }else{
