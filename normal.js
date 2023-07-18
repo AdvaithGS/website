@@ -73,12 +73,17 @@ button.addEventListener("click", count);
         }else if (i === 20){
             i += 1;
             var input = document.getElementById('input');
-            if (parseInt(input.value) === answers[text_questions.length - 1 ]){
+            if (parseInt(input.value) === answers[answers.length - 1 ]){
                 right += 1;
                 document.getElementById('result').textContent = 'Correct!';
             }else{
                 if (i !== 0){
-                    document.getElementById('result').textContent = `Wrong, Correct Answer: ${String(text_questions[text_questions.length - 1])}`;
+                    if (text_questions[text_questions.length - 1].includes('/')){
+                        document.getElementById('answer').textContent = 'Correct Answer: ' + String((answers[answers.length - 1])/1000);
+                    }
+                    else{
+                        document.getElementById('answer').textContent = 'Correct Answer: ' + String(answers[answers.length - 1]);
+                    };
                 }
             };
             input.value = ''
