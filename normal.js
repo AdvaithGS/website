@@ -49,7 +49,7 @@ button.addEventListener("click", count);
             i += 1;
             var x = Math.floor(Math.random()*49) + 1;
             var y = Math.floor(Math.random()*49) + 1;
-            var z = ['+','-','*','+','-','*','/'][Math.floor(Math.random()*7)];
+            var z = ['+','-','*','+','-','*'][Math.floor(Math.random()*7)];
             if (z === '+'){
                 text_questions.push(String(x) + ' + ' + String(y));
                 answers.push(x+y);
@@ -59,15 +59,7 @@ button.addEventListener("click", count);
             }else if(z === '*'){
                 text_questions.push(String(x) + ' x ' + String(y));
                 answers.push(x*y);
-            }else if(z === '/'){
-                var x = Math.floor(Math.random()*200);
-                var y = Math.floor(Math.random()*200);
-                while (y === 0){   
-                    var y = Math.floor(Math.random()*x);
-                };
-                text_questions.push(String(x) + ' / ' + String(y));
-               answers.push(parseInt((x/y)*1000));
-                };
+            }
             question.textContent = text_questions[text_questions.length - 1];
             //result.textContent = i;
         }else if (i === 20){
@@ -78,12 +70,7 @@ button.addEventListener("click", count);
                 document.getElementById('result').textContent = 'Correct!';
             }else{
                 if (i !== 0){
-                    if (text_questions[text_questions.length - 1].includes('/')){
-                        document.getElementById('answer').textContent = 'Correct Answer: ' + String((answers[answers.length - 1])/1000);
-                    }
-                    else{
-                        document.getElementById('answer').textContent = 'Correct Answer: ' + String(answers[answers.length - 1]);
-                    };
+                    document.getElementById('answer').textContent = 'Correct Answer: ' + String(answers[answers.length - 1]);
                 }
             };
             input.value = ''
