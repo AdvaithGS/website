@@ -1,0 +1,80 @@
+.container {
+  margin: 20px auto;
+  padding: 20px;
+  border-radius: 5px;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+body {
+  background: rgb(2, 0, 36);
+  font-family: Lora;
+  font-size: 3vw;
+  color: rgb(255, 255, 255);
+  display: flex;
+  width: 100%;
+  height: 100vh;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  text-align: center;
+  min-height: 100vh;
+  display: flex;
+  margin: 0;
+}
+
+h1 {
+  text-align: center;
+}
+
+#question {
+  margin-bottom: 2.5vh;
+  padding-bottom: 2em;
+}
+
+input {
+  font-family: Lora;
+  border-radius: 0.2em;
+  border-color: #ffa260;
+  color: #ffa260;
+  background-color: rgba(40, 37, 41, 0);
+  padding: 0.5em;
+  width: max-content;
+  font-size: 3vh;
+  margin: 0.5vh;
+  margin-top: 0.5em;
+  margin-bottom: 1em;
+  color: #ffa260;
+  text-align: center;
+  transition: 0.25s;
+
+  &:hover,
+  &:focus {
+    border-color: adjust-hue(#ffa260, 45deg);
+    color: #f7b177;
+  }
+}
+
+input:hover,
+input:focus {
+  box-shadow: 0 0.8em 0.5em -0.4em rgb(223, 202, 42);
+  transform: translateY(-0.25em);
+}
+input{
+  --hover: #{adjust-hue($color, 45deg)};
+}
+
+.Wrong:active {
+  color: rgb(250, 85, 66);
+  box-shadow: 0 0.8em 0.5em -0.4em rgb(250, 85, 66);
+  border-color: rgb(250, 85, 66);
+}
+
+.Solution:active{
+  color: rgb(0, 255, 0);
+  box-shadow: 0 0.8em 0.5em -0.4em rgb(0, 255, 0);
+  border-color: rgb(0, 255, 0);
+}
+.quizform {
+  display: flex;
+}
